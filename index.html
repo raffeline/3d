@@ -56,17 +56,17 @@
         
         const textureLoader = new THREE.TextureLoader();
         
-        const stoneTexture = textureLoader.load('https://img.freepik.com/premium-photo/stone-texture-dark-stone-old-stone-texture_324894-81.jpg');
+        const stoneTexture = textureLoader.load('https://threejs.org/examples/textures/brick_diffuse.jpg');
         stoneTexture.wrapS = THREE.RepeatWrapping;
         stoneTexture.wrapT = THREE.RepeatWrapping;
         stoneTexture.repeat.set(2, 2);
         
-        const woodTexture = textureLoader.load('https://threejs.org/examples/textures/uv_grid_opengl.jpg');
+        const stoneTexture = textureLoader.load('https://threejs.org/examples/textures/uv_grid_opengl.jpg');
         woodTexture.wrapS = THREE.RepeatWrapping;
         woodTexture.wrapT = THREE.RepeatWrapping;
         woodTexture.repeat.set(1.5, 1.5);
         
-        const metalTexture = textureLoader.load('https://threejs.org/examples/textures/brick_diffuse.jpg');
+        const stoneTexture = textureLoader.load('https://threejs.org/examples/textures/brick_diffuse.jpg');
         metalTexture.wrapS = THREE.RepeatWrapping;
         metalTexture.wrapT = THREE.RepeatWrapping;
         metalTexture.repeat.set(3, 3);
@@ -78,14 +78,14 @@
             metalness: 0.1
         });
         
-        const woodMaterial = new THREE.MeshStandardMaterial({ 
+        const stoneMaterial = new THREE.MeshStandardMaterial({ 
             map: woodTexture,
             color: 0xaa9977,
             roughness: 0.6,
             metalness: 0.05
         });
         
-        const metalMaterial = new THREE.MeshStandardMaterial({ 
+        const stoneMaterial = new THREE.MeshStandardMaterial({ 
             map: metalTexture,
             color: 0x88aaff,
             roughness: 0.3,
