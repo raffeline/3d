@@ -1,4 +1,3 @@
-
 ```html
 <!DOCTYPE html>
 <html lang="ru">
@@ -105,12 +104,12 @@
         const loader = new GLTFLoader();
         let bankoModel = null;
         
-        const modelUrl = 'https://cdn.jsdelivr.net/gh/raffeline/3D-MODELS@main/%D0%B1%D0%B0%D0%BD%D0%BA%D0%BE.glb';
+        const modelUrl = 'https://raw.githubusercontent.com/raffeline/3D-MODELS/main/%D0%B1%D0%B0%D0%BD%D0%BA%D0%BE.glb';
         
         loader.load(modelUrl,
             (gltf) => {
                 bankoModel = gltf.scene;
-                bankoModel.position.set(0, -0.4, 1.8);
+                bankoModel.position.set(0, -0.5, 2);
                 bankoModel.scale.set(1, 1, 1);
                 bankoModel.traverse((child) => {
                     if (child.isMesh) {
@@ -119,10 +118,11 @@
                     }
                 });
                 scene.add(bankoModel);
+                console.log('Модель банко загружена');
             },
             undefined,
             (error) => {
-                console.error('Ошибка:', error);
+                console.error('Ошибка загрузки модели:', error);
             }
         );
 
@@ -163,7 +163,7 @@
             cone.position.y = 0 + Math.sin(time * 2.8) * 0.15;
             
             if (bankoModel) {
-                bankoModel.rotation.y += 0.003;
+                bankoModel.rotation.y += 0.005;
             }
             
             controls.update();
@@ -182,3 +182,4 @@
 </body>
 </html>
 ```
+
