@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D сцена с текстурами</title>
+    <title>3D сцена с текстурой кирпичей</title>
     <style>
         body { margin: 0; overflow: hidden; }
     </style>
@@ -53,74 +53,50 @@
         const fillLight = new THREE.PointLight(0x8866cc, 0.4);
         fillLight.position.set(1, 2, 3);
         scene.add(fillLight);
-        
+
         const textureLoader = new THREE.TextureLoader();
         
-        const stoneTexture = textureLoader.load('https://threejs.org/examples/textures/brick_diffuse.jpg');
-        stoneTexture.wrapS = THREE.RepeatWrapping;
-        stoneTexture.wrapT = THREE.RepeatWrapping;
-        stoneTexture.repeat.set(2, 2);
+        const brickTexture = textureLoader.load('https://threejs.org/examples/textures/brick_diffuse.jpg');
+        brickTexture.wrapS = THREE.RepeatWrapping;
+        brickTexture.wrapT = THREE.RepeatWrapping;
+        brickTexture.repeat.set(2, 2);
         
-        const stoneTexture = textureLoader.load('https://threejs.org/examples/textures/uv_grid_opengl.jpg');
-        woodTexture.wrapS = THREE.RepeatWrapping;
-        woodTexture.wrapT = THREE.RepeatWrapping;
-        woodTexture.repeat.set(1.5, 1.5);
-        
-        const stoneTexture = textureLoader.load('https://threejs.org/examples/textures/brick_diffuse.jpg');
-        metalTexture.wrapS = THREE.RepeatWrapping;
-        metalTexture.wrapT = THREE.RepeatWrapping;
-        metalTexture.repeat.set(3, 3);
-
-        const stoneMaterial = new THREE.MeshStandardMaterial({ 
-            map: stoneTexture,
+        const brickMaterial = new THREE.MeshStandardMaterial({ 
+            map: brickTexture,
             color: 0xcccccc,
             roughness: 0.7,
             metalness: 0.1
         });
-        
-        const stoneMaterial = new THREE.MeshStandardMaterial({ 
-            map: woodTexture,
-            color: 0xaa9977,
-            roughness: 0.6,
-            metalness: 0.05
-        });
-        
-        const stoneMaterial = new THREE.MeshStandardMaterial({ 
-            map: metalTexture,
-            color: 0x88aaff,
-            roughness: 0.3,
-            metalness: 0.8
-        });
 
         const cubeGeometry = new THREE.BoxGeometry(1.2, 1.2, 1.2);
-        const cube = new THREE.Mesh(cubeGeometry, stoneMaterial);
+        const cube = new THREE.Mesh(cubeGeometry, brickMaterial);
         cube.position.set(-2.5, 0.6, 0);
         cube.castShadow = true;
         cube.receiveShadow = true;
         scene.add(cube);
         
         const sphereGeometry = new THREE.SphereGeometry(0.7, 64, 64);
-        const sphere = new THREE.Mesh(sphereGeometry, woodMaterial);
+        const sphere = new THREE.Mesh(sphereGeometry, brickMaterial);
         sphere.position.set(2.5, 0.7, 1);
         sphere.castShadow = true;
         sphere.receiveShadow = true;
         scene.add(sphere);
         
         const cylinderGeometry = new THREE.CylinderGeometry(0.6, 0.6, 1.4, 48);
-        const cylinder = new THREE.Mesh(cylinderGeometry, metalMaterial);
+        const cylinder = new THREE.Mesh(cylinderGeometry, brickMaterial);
         cylinder.position.set(0, 0.3, -2.2);
         cylinder.castShadow = true;
         cylinder.receiveShadow = true;
         scene.add(cylinder);
         
         const torusGeometry = new THREE.TorusGeometry(0.85, 0.22, 64, 128);
-        const torus = new THREE.Mesh(torusGeometry, stoneMaterial);
+        const torus = new THREE.Mesh(torusGeometry, brickMaterial);
         torus.position.set(-1, 1.3, 2.2);
         torus.castShadow = true;
         scene.add(torus);
         
         const coneGeometry = new THREE.ConeGeometry(0.65, 1.3, 48);
-        const cone = new THREE.Mesh(coneGeometry, woodMaterial);
+        const cone = new THREE.Mesh(coneGeometry, brickMaterial);
         cone.position.set(1.2, 0, -1);
         cone.castShadow = true;
         cone.receiveShadow = true;
